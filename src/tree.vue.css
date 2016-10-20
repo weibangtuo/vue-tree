@@ -1,0 +1,78 @@
+.vue-tree {
+    font-size: 14px;
+    min-height: 20px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.vue-tree li {
+    margin: 0;
+    padding: 5px;
+    position: relative;
+    list-style: none;
+}
+
+.vue-tree li > span,
+.vue-tree li > i,
+.vue-tree li > a {
+    line-height: 20px;
+    vertical-align: middle;
+}
+
+.vue-tree li > a + a {
+    margin-left: 5px;
+}
+
+.vue-tree li i.icon-open-state {
+    font-size: 16px;
+}
+
+.vue-tree ul ul li:hover {
+    background: rgba(0, 0, 0, .015)
+}
+
+.vue-tree li:after, .vue-tree li:before {
+    content: '';
+    left: -18px;
+    position: absolute;
+    right: auto
+}
+
+.vue-tree li:before {
+    border-left: 1px solid #999;
+    bottom: 50px;
+    height: 100%;
+    top: -16px;
+    width: 1px;
+}
+
+.vue-tree li:after {
+    border-top: 1px solid #999;
+    height: 20px;
+    top: 17px;
+    width: 22px
+}
+
+.vue-tree li span {
+    display: inline-block;
+    padding: 3px 5px;
+    text-decoration: none;
+}
+
+.vue-tree > ul > li::after, .vue-tree > ul > li:before {
+    border: 0
+}
+
+.vue-tree li:last-child::before {
+    height: 34px
+}
+
+.vue-tree > ul {
+    padding-left: 0
+}
+
+.vue-tree ul ul {
+    padding-left: 24px;
+    padding-top: 10px
+}
