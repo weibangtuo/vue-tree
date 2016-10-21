@@ -38,26 +38,31 @@ Add the component in your vue view.
 
 ## Node Options
 
+  `[opt]` means optional property.
+
 ```javascript
 {
   name: 'Node Name',
   title: 'Node Tag title attr',
-  isParent: true, //
-  isOpen: true, // Control node to fold or unfold
-  icon: 'fa fa-folder', // Or other custom icons call by class name
-  openedIcon: 'fa fa-folder-open', // [option] For parent. Show when isOpen == true, show icon if it's null or empty 
-  closedIcon: 'fa fa-folder', // [option] For parent. Show when isOpen != true, show icon if it's null or empty 
-  children: [], // for parent node only
-  buttons: [ // []
+  isParent: true, // Requested for parent node
+  isOpen: false, // [opt] Control node to fold or unfold
+  icon: 'fa fa-folder', //[opt] Icon class name
+  openedIcon: 'fa fa-folder-open', // [opt] For parent. Show when isOpen == true, show icon if it's null or empty 
+  closedIcon: 'fa fa-folder', // [opt] For parent. Show when isOpen != true, show icon if it's null or empty 
+  children: [], // Requested for parent node
+  buttons: [ // [opt]
     {
-      title: 'icon button tag title attr', //[option]
+      title: 'icon button tag title attr', //[opt]
       icon: 'fa fa-edit',
-      click: function (node) { //[option]
+      click: function (node) { //[opt]
           //
       }
     }
     //...
-  ]
+  ],
+  showLoading: false, // [opt] For parent, when `node.showLoading && node._loading` and node is opened then show loading icon
+  onOpened: function (node) {}, // [opt]
+  onClosed: function (node) {} // [opt]
 }
 ```
 

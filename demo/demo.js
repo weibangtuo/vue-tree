@@ -5,7 +5,6 @@
         node.children.push({
             name: 'child node',
             parent: node,
-            isOpen: true,
             isParent: true,
             children: [],
             buttons: [
@@ -78,7 +77,6 @@
                         },
                         {
                             name: 'Level1 add node',
-                            isOpen: true,
                             isParent: true,
                             children: [],
                             buttons: [
@@ -88,7 +86,7 @@
                                     click: function (node) {
                                         node.isOpen = true;
                                         node.children.push({
-                                            name: 'level2 node',
+                                            name: 'Level2 node',
                                             parent: node,
                                             buttons: [
                                                 {
@@ -105,8 +103,7 @@
                             ]
                         },
                         {
-                            name: 'level1-addNode',
-                            isOpen: true,
+                            name: 'Level1-addNode',
                             isParent: true,
                             children: [],
                             buttons: [
@@ -116,6 +113,27 @@
                                     click: addNode
                                 }
                             ]
+                        },
+                        {
+                            name: 'Level1 Ajax',
+                            isParent: true,
+                            children: [],
+                            showLoading: true, // if (node.showLoading && node._loading) then show loading icon
+                            onOpened: function (node) {
+                                if (!node._loading) {
+                                    Vue.set(node, 'children', []); // Clean old data
+                                    node._loading = true; // Start Ajax
+                                    setTimeout(function () { //
+                                        node._loading = false; //Finish Ajax
+                                        for (var i = 1; i < 6; i++) {
+                                            node.children.push({name: 'Ajax Node ' + i});
+                                        }
+                                    }, 2000);
+                                }
+                            },
+                            onClosed: function () {
+                                // NOOP
+                            }
                         }
                     ]
                 }
