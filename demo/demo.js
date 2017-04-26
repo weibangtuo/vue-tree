@@ -3,7 +3,7 @@
     var addNode = function (node) {
         node.isOpen = true;
         node.children.push({
-            name: 'child node',
+            name: 'child node ' + node.children.length,
             parent: node,
             isParent: true,
             children: [],
@@ -16,7 +16,7 @@
                     title: 'Delete',
                     icon: 'fa fa-trash',
                     click: function (node) {
-                        node.parent && node.parent.children.$remove(node);
+                        node.parent.children.splice(node.parent.children.indexOf(node), 1);
                     }
                 }
             ]
@@ -86,14 +86,14 @@
                                     click: function (node) {
                                         node.isOpen = true;
                                         node.children.push({
-                                            name: 'Level2 node',
+                                            name: 'Level2 node ' + node.children.length,
                                             parent: node,
                                             buttons: [
                                                 {
                                                     title: 'Delete',
                                                     icon: 'fa fa-trash',
                                                     click: function (node) {
-                                                        node.parent.children.$remove(node);
+                                                        node.parent.children.splice(node.parent.children.indexOf(node), 1);
                                                     }
                                                 }
                                             ]

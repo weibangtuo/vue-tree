@@ -8,7 +8,7 @@
         '<a v-for="btn in node.buttons" class="ml5" href="javascript:" :title="btn.title" v-on:click="btnClick(btn, node)"><i :class="btn.icon"></i></a>' +
         '<ul v-show="node.isOpen">' +
         '<li v-show="node.showLoading && node._loading"><i class="fa fa-spinner fa-pulse"></i></li>' +
-        '<vue-tree-item v-for="item in node.children" :node="item"></vue-tree-item>' +
+        '<vue-tree-item v-for="item in node.children" :node="item" v-key="node.id"></vue-tree-item>' +
         '</ul>' +
         '</li>',
         props: {

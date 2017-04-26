@@ -1,6 +1,6 @@
 # Vue Tree View Component
 
-  Support `Vue.js` 1.0+
+  Support `Vue.js` 2.0+
 
 ## Usage
 
